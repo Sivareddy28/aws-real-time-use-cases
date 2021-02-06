@@ -1,26 +1,15 @@
-# BRIEF DESCRIPTION OF PROBLEM
+# Processing millions of objects
 
 ## 🔥 Scenario
 
-Describe the problem that needs to be resolved in a crisp manner, yet with enough information to solve it.
+Mystique Corp Unicorn App is ingesting 1200 Millions of objects(5Kb each) per month in S3 bucket through Firehose. These objects are needed by the by the back end team for near real-time processing.(~`<1min`>) First the objects will be retrieved and then processed by multiple lambda functions. At this moment, there will be 5 unique operations(5 different lambdas) to be performed. The team is worried about S3 `GET` costs. As this leads to `6 Billion`(12000 * 5) calls to S3
 
--- <cite>[Examples][1]</cite>
+As their AWS Cloud Consultant can you suggest an architecture that is cheaper to process these event objects?
 
-> Your customer is running Windows, Oracle and few other applications in AWS RDS and EC2. Some of those applications are using 'Bring Your Own License'(BYOL). Now they want to create an inventory of their license in cloud. They want to use the AWS License Manager to manager their license inventory.  
-> \
-> They are finding it difficult to map their BYOL license with AWS License Manager, as the product is having limitations with BYOL as on Q1 2020. Can you help them?
-
-## 📋 Next Steps
-
-1. What actions will you take?
-1. How will you test your solution?
-1. Can you automate its deployment and improve its re-usability as a bonus feature?
 
 ## 🎯Solutions
 
-Placeholder for solution brief
-
--- <cite>[Solution Examples][2]</cite>
+**Option:1** They can consider using SNS to fan-out the event and trigger multiple lambda functions
 
 ## 📌 Who is using this
 
